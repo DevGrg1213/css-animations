@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS | cool button animation</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      a {
+        border: 1px solid #000;
+        padding: 30px 70px;
+        text-decoration: none;
+        font-size: 16px;
+        position: relative;
+        background-color: none;
+        color: black;
+        overflow: hidden;
+      }
+      a:before,
+      a.plus:after {
+        content: "";
+        position: absolute;
+        background-color: blueviolet;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+      a.top-down:before {
+        transform-origin: bottom left;
+        transform: rotate(-90deg);
+        transition: transform 0.9s;
+      }
+      a.top-down:hover:before {
+        transform: rotate(0deg);
+      }
+
+      a.slide:before {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+      }
+      a.slide:hover:before {
+        transform: translateX(0);
+      }
+
+      a.plus:before {
+        transition: all 0.3s;
+        transform: rotateX(90deg);
+      }
+      a.plus:after {
+        transition: all 0.3s;
+        transform: rotateY(90deg);
+      }
+      a.plus:hover:before {
+        transform: rotateX(0deg);
+      }
+      a.plus:hover:after {
+        transform: rotateY(0deg);
+      }
+
+      a.yeah:before {
+        content: "Yeah";
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        transition: all 0.5s;
+        transform: translateY(-100%);
+      }
+      a.yeah:hover:before {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <a class="top-down" href="#">Hover me</a>
+    <a class="slide" href="#">Hover me</a>
+    <a class="plus" href="#">Hover me</a>
+    <a class="yeah" href="#">Hover me</a>
+  </body>
+</html>
